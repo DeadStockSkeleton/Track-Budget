@@ -23,6 +23,15 @@ router.get('/budget/transaction', async (req, res) => {
   }
 })
 
+router.post('/budget/transaction/bulk', async (req, res) => {
+  try{
+    Transaction.insertMany(req.body).then(data => {
+      res.status(200).json(data);
+    })
+  }catch(err){
+    res.status(404).json(err);
+  }
+})
 
 
 module.exports = router;

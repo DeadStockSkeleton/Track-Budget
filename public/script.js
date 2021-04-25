@@ -101,3 +101,5 @@ fetch("/budget/transaction", {
     transactions = data;
     render();
   });
+
+  

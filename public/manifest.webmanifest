@@ -1,0 +1,8 @@
+{
+  "name": "TrackBudget",
+  "short_name": "TrackBudget",
+  "start_url": ".",
+  "background_color": "#292b2c",
+  "theme_color": "#292b2c",
+  "display": "standalone"
+}
