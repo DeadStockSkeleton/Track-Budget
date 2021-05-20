@@ -53,6 +53,18 @@
             </div>
 
           </div>
+          <script>
+            (function () {
+              if ('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                  .register('./service-worker.js')
+                  .then(() => console.log('Service Worker registered successfully.'))
+                  .catch((error) =>
+                    console.log('Service Worker registration failed:', error)
+                  );
+              }
+            })();
+          </script>
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="script.js" async defer></script>
           <script src="db.js"></script>
