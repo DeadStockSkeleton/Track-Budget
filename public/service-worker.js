@@ -38,14 +38,8 @@ self.addEventListener("activate", function(evt) {
 // retrieve assets from cache
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(DATA_CACHE_NAME).then((data)=>{
-      return (event.request).then((res) => {
-        cache.put(event.request.url, res.clone())
-        return res
-      })
-    }).catch(() => {
-      // Network request failed, try to get it from the cache.
-      return cache.match(event.request);
+    caches.match(event.request).then( response => {
+      return response || fetch(event.request);
     })
   );
 });
