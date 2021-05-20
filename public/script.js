@@ -98,7 +98,10 @@ fetch("/budget/transaction", {
 })
   .then((response) => response.json())
   .then((data) => {
-    transactions = data;
+    if (data.length > 0){
+     transactions = data; 
+    }
+    
     render();
   });
 
