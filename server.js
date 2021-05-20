@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 const PORT = process.env.PORT || 3000;
-
+const routes = require("./routes/routes.js");
 const app = express();
 
 app.use(logger("dev"));
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 });
 
 // routes
-app.use(require("./routes/routes.js"));
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`App running on port`);
